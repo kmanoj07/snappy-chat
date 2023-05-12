@@ -99,10 +99,4 @@ const Container = styled.div`
 
         }
     }
-
-
-
-
-
-
 `;
