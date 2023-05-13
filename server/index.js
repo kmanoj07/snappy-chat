@@ -13,7 +13,6 @@ dotenv.config();
 // middle ware to rescues CORS, JSON
 app.use(cors());
 app.use(express.json());
-
 app.use("/api/auth", userRoutes);
 
 //connect to mongoDB through Mongoose

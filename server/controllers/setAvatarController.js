@@ -8,17 +8,17 @@ const setAvataarRoute = async (req, res, next) => {
                 isAvataarImageSet: true,
                 avataarImage: image,
             }, {new :true});
+
             return res.json({
                  id:userData._id,
                  isSet:userData.isAvataarImageSet,
                  image: userData.avataarImage,
                  status: true
             });
+            
     } catch(ex) {
         next(ex);
     }
-   
-    
 };
 
 module.exports = setAvataarRoute;

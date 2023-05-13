@@ -59,7 +59,7 @@ function Login() {
                 return false;
             }
             // navigate to chat logged in 
-            navigate("/");
+            navigate("/setAvataar");
         }
     };
 
