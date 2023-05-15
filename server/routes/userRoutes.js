@@ -8,7 +8,6 @@ const router = require('express').Router();
 router.post("/register", register)
 router.post("/login", login)
 router.post("/setAvataarRoute/:id", setAvataarRoute)
-
 router.get("/allusers/:id", getAllUsers)
 
 

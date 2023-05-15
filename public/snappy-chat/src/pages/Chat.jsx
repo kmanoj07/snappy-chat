@@ -1,39 +1,67 @@
 import {React, useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from 'axios';
 
 import {allUsersRoute} from '../utils/APIRoutes';
+import Contacts from "../components/Contacts";
+import { useNavigate } from "react-router-dom";
+import Welcome from "../components/Welcome";
+import ChatContainer from "../components/ChatContainer";
 
 function Chat(){
     const navigate = useNavigate();
     const[contacts, setContacts] = useState([]);
     const[currentUser, setCurrentUser] = useState(undefined);
+    const [currentChat, setCurrentChat] = useState(undefined);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect( async () => {
+    useEffect(() => {
         if(!localStorage.getItem('chat-app-user')) {
             navigate("/login");
             return;
         } else {
-            const currentUser = await JSON.parse(localStorage.getItem('chat-app-user'));
-            setCurrentUser(currentUser);
+            setCurrentUser(JSON.parse(localStorage.getItem('chat-app-user')))
+            setIsLoaded(true);
         }
-    });
+    },[navigate]);
 
     useEffect(()=> {
-        if(currentUser) {
-            if(currentUser.isAvataarImageSet) {
-                const data =  axios.get(`${allUsersRoute}/${currentUser._id}`);
-                setContacts(data.data);
-            } else {
-                navigate('/setAvataarRoute');
+        const fetchData = async()=> {
+            if(currentUser) {
+                if(currentUser.isAvataarImageSet) {
+                    const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
+                    console.log(data);
+                    setContacts(data.data);
+                } else {
+                    navigate('/setAvataarRoute');
+                }
             }
         }
-    }, [currentUser]);
+       fetchData();
+    }, [currentUser, navigate]);
+
+    const handleChangeChat = (currentChat) => {
+        setCurrentChat(currentChat);
+        console.log({currentChat});
+    };
     
     return (
             <Container>
-                <div className="container"></div>
+                <div className="container">
+                    <Contacts 
+                        contacts={contacts} 
+                        currentUser={currentUser}
+                        changeChat = {handleChangeChat}
+                    />
+                    {
+                      isLoaded && currentChat === undefined ? (
+                       <Welcome currentUser={currentUser}/> 
+                       ) : ( 
+                       <ChatContainer currentChat={currentChat}/> 
+                       )
+                    }
+                  
+                </div>
             </Container>
     );
 }
@@ -55,7 +83,7 @@ const Container = styled.div`
             display: grid;
             grid-template-columns: 25% 75%;
             @media screen and (min-width: 720px) and (max-width: 1080px) {
-                grid-template-columns: 35%% 65%;
+                grid-template-columns: 35% 65%;
             }
         }
 `;

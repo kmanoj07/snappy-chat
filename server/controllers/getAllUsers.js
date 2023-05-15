@@ -8,9 +8,7 @@ const getAllUsers = async (req, res, next) => {
         const users = await User.find({_id: {$ne:req.params.id} }).select([
             "email", "username", "avataarImage", "_id",
         ]);
-
         return res.status(200).json(users);
-        
     } catch(ex) {
         next(ex);
     }
