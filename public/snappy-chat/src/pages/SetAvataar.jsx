@@ -32,7 +32,7 @@ export default function SetAvataar() {
           const {data} = await axios.post(`${setAvataarRoute}/${id}`, {
               image: avataars[selectedAvataar]
           });
-          console.log(data);
+          // console.log(data);
           if(data.isSet && data.status){
             user.isAvataarImageSet = true;
             user.avataarImage = data.image;
