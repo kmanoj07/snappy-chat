@@ -1,33 +1,56 @@
 # Snappy-chat
-Snappy is a real time chat application based on socket.io for communication between multiple clients.
 
-# Technology
-- Frontend: JavaScript, React, HTML
-- CSS: react's styled component
-- Backend: NodeJS, ExpressJS, Axios
-- Database: NoSQL (MongoDB)
+Snappy-chat is a real-time chat application based on socket.io for communication between multiple clients.
 
-# App Features
-<p>Chat page</p>
-<img src="app-images/chat.png" alt="login" width="768px"/>
-  
-<p>Login: user can loign into system using username and password.</p>
-<img src="app-images/login.png" alt="login" width="768px"/>
+## Technology
 
-<p> user can register if not exists </p>
-<img src="app-images/resgistraion.png" alt="login" width="768px"/>
+- **Frontend**: JavaScript, React, HTML
+- **CSS**: React's styled-components
+- **Backend**: Node.js, Express.js, Axios
+- **Database**: NoSQL (MongoDB)
 
-<p>Initial loader</p>
-<img src="app-images/loader.png" alt="login" width="768px"/>
+## App Features
 
-<p>user can set there own avataar after login</p>
-<img src="app-images/setavataar.png" alt="login" width="768px"/>
+### Chat Page
 
-<p>user can click in the other online users in the System to start messaging at real time</>
-<img src="app-images/realtime-chat.png" alt="login" width="768px"/>
+![Chat Page](app-images/chat.png)
 
-<p>user can share the emojis as well</p>
-<img src="app-images/emoji.png" alt="login" width="768px"/>
+### Login
 
-## Features to be add...
-- Overall this app can be customised to attach file and share to the user, we can also add live vedio chat feacture as well.
+Users can log in to the system using their username and password.
+
+![Login](app-images/login.png)
+
+### Registration
+
+Users can register if they don't have an account.
+
+![Registration](app-images/registration.png)
+
+### Initial Loader
+
+![Loader](app-images/loader.png)
+
+### Set Avatar
+
+Users can set their own avatar after logging in.
+
+![Set Avatar](app-images/set-avatar.png)
+
+### Real-time Chat
+
+Users can click on other online users in the system to start messaging in real-time.
+
+![Real-time Chat](app-images/realtime-chat.png)
+
+### Emoji Support
+
+Users can share emojis in their messages.
+
+![Emoji Support](app-images/emoji.png)
+
+## Features to Be Added
+
+- This app can be customized to attach files and share them with other users.
+- Live video chat feature can also be added in the future.
+
